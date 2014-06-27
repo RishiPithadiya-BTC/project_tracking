@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  description: MyString
+  billing_type: MyString
+  start_date: 2014-06-27 15:58:46
+  deadline_date: 2014-06-27 15:58:46
+  end_date: 2014-06-27 15:58:46
+  github_url: MyString
+  status: MyString
+
+two:
+  name: MyString
+  code: MyString
+  description: MyString
+  billing_type: MyString
+  start_date: 2014-06-27 15:58:46
+  deadline_date: 2014-06-27 15:58:46
+  end_date: 2014-06-27 15:58:46
+  github_url: MyString
+  status: MyString
