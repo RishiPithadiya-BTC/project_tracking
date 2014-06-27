@@ -10,44 +10,45 @@
       </ul>
     </div>
   <% end %>
-
+<center>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :code %><br>
+    <%= f.label :code %>
     <%= f.text_field :code %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :billing_type %><br>
+    <%= f.label :billing_type %>
     <%= f.text_field :billing_type %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :deadline_date %><br>
-    <%= f.datetime_select :deadline_date %>
+    <%= f.label :deadline_date %>
+    <%= f.date_select :deadline_date %>
   </div>
   <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
   </div>
   <div class="field">
-    <%= f.label :github_url %><br>
+    <%= f.label :github_url %>
     <%= f.text_field :github_url %>
   </div>
   <div class="field">
-    <%= f.label :status %><br>
+    <%= f.label :status %>
     <%= f.text_field :status %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+  </center>
 <% end %>

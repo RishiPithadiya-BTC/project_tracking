@@ -1,4 +1,8 @@
 ProjectTracking::Application.routes.draw do
+  root  'static_pages#home'
+  match '/home',    to: 'static_pages#home',    via: 'get'
+  match '/contact_us', to: 'static_pages#contact_us', via: 'get'
+  match '/projects',    to: 'projects#index',    via: 'get'
   resources :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
