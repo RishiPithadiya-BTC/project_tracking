@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :billing_type %>
-    <%= f.text_field :billing_type %>
+   <%= f.select :billing_type, [ 'TNM', 'FIXED']%>
   </div>
   <div class="field">
     <%= f.label :start_date %>
@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :status %>
-    <%= f.text_field :status %>
+    <%= f.select :status, [ 'POC', 'KICK OFF','COMPLETED'] %>
   </div>
   <div class="actions">
     <%= f.submit %>
