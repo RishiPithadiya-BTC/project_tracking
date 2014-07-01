@@ -15,9 +15,14 @@ How many different ways can N be written as a sum of at least two positive integ
 
 =end
 
+#initialize counter variable with zero to track the number of possibilities
+$cnt=0
+
 #Method for Print elements of 'arr' up to 'n'
 def print_array(arr,n)
     i=0
+    $cnt+=1
+    print "Possibility #{$cnt}\t:  "
     while i < n-1
         print "#{arr[i]} + "
         i+=1
@@ -72,5 +77,5 @@ def print_all_unique_parts(n)
 end
 
 #User Input
-print "\nEnter Number to Show Partial Sum of Parts : ";num=gets.chomp!;puts "\nParts are :"
+print "\nEnter Number to Show Partial Sum of Parts : ";num=gets.chomp!;puts
 print_all_unique_parts(num.to_i)

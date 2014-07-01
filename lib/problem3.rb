@@ -29,14 +29,16 @@ def purchase_toys(number_of_toys,available_money)
   i=0
   #Calculation of How much money is remaining and Purchased toys will be stored in purchased_toys array
   while i < number_of_toys
-  	sum+=toys[toys.keys[i]]	
+  	
+    sum+=toys[toys.keys[i]]	
   	if sum <= available_money 
   	  purchased_toys	<< toys.keys[i]
-  	else
-  	  remaining_money = available_money-sum+toys[toys.keys[i]]	
-  	end
+      remaining_money = available_money-sum
+    end
+
   	i+=1
   end
+
   return purchased_toys,remaining_money
 end
 
