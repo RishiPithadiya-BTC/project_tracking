@@ -23,17 +23,17 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @project.start_date %>
+  <%= @project.start_date.strftime("%m-%d-%Y") %>
 </p>
 
 <p>
   <strong>Deadline date:</strong>
-  <%= @project.deadline_date %>
+  <%= @project.deadline_date.strftime("%m-%d-%Y") %>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @project.end_date %>
+  <%= @project.end_date.strftime("%m-%d-%Y") %>
 </p>
 
 <p>

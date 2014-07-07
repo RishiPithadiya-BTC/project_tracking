@@ -10,34 +10,38 @@
       <th>Start date</th>
       <th>Deadline date</th>
       <th>End date</th>
-      <th>Github url</th>
+      <!--<th>Github url</th>-->
       <th>Status</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Action</th>
+      <!-- <th></th> 
+      <th></th> -->
     </tr>
   </thead>
 
+  <% projects = @projects.sort_by(&:deadline_date) %>
+  <center><%= will_paginate %></center>
   <tbody>
-    <% @projects.each do |project| %>
+    
+    <% projects.each do |project| %>
       <tr>
-        <td><%= project.name %></td>
+        <td><%= project.name%></td>
         <td><%= project.code %></td>
         <td><%= project.description %></td>
         <td><%= project.billing_type %></td>
-        <td><%= project.start_date %></td>
-        <td><%= project.deadline_date %></td>
-        <td><%= project.end_date %></td>
-        <td><%= project.github_url %></td>
+        <td><%= project.start_date.strftime("%m-%d-%Y") %></td>
+        <td><%= project.deadline_date.strftime("%m-%d-%Y") %></td>
+        <td><%= project.end_date.strftime("%m-%d-%Y") %></td>
+        <!--<td><%= project.github_url %></td>-->
         <td><%= project.status %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Show', project %></td> -->
+        <td><%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
     <% end %>
   </tbody>
+  
 </table>
-
+<center><%= will_paginate %></center>
 <br>
 
 <%= link_to 'New Project', new_project_path %>
