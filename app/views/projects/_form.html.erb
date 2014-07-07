@@ -48,9 +48,13 @@
     <%= f.select :status, [ 'POC', 'KICK OFF','COMPLETED'] %>
   </div>
   <div class="field">
+    <% if action_name == 'new' %>
     <%= f.label :client_id %>
-    <%= f.collection_select :client, Client.all, :id, :name, placeholder: "Select Client name", :class => 'form-control', include_blank: false %>
-
+    <%= f.collection_select :client_id, Client.all, :id, :name, placeholder: "Select Client name", :class => 'form-control', include_blank: false %>
+    <% elsif action_name == 'edit' %>
+    <%= f.label :client_id %>
+    <%= f.collection_select :client, Client.all, :id, :name, {}, {:disabled => "disabled"}  %> 
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

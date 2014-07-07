@@ -1,6 +1,6 @@
-<h1><u>Listing projects</u></h1>
+<h1><u>Projects</u></h1>
 
-<table border="2" align="center">
+<table border="2" align="center" cellpadding="9">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,7 +20,36 @@
   </thead>
 
   <% projects = @projects.sort_by(&:deadline_date) %>
-  <center><%= will_paginate %></center>
+  
+  <center>
+  <div id="Search">
+    <!-- <input id="name" name="name" type="text" placeholder="Project Name" />
+    <select id="status">
+      <option>POC</option>
+      <option>KICK OFF</option>
+      <option>COMPLETED</option>
+    </select>
+    <select id="client">
+      <% @clients.each do |client| %>
+        <option><%= client.name%></option>
+      <% end %>
+    </select> -->
+
+    <%= form_tag(:projects, method: "get") do %>
+      <div align="center">
+        <%= text_field_tag "search", params[:search], :placeholder => "Project Name"%>
+        <%= select("status", "status_id", Project.select(:status).map(&:status).uniq) %>
+        <%= select("client_name", "client_id", Client.all.collect {|p| [ p.name, p.id ] }) %>
+        <%= submit_tag "Search", name: nil, class: "btn-custom-darken" %>
+        <br/>
+      </div>
+    <% end %>
+
+    <%#= @filtered=Project.where("name = ? AND status = ? AND client_id = ?",params[:search],status,client_id).all %>
+
+  </div>  
+  </center>
+
   <tbody>
     
     <% projects.each do |project| %>
@@ -29,9 +58,9 @@
         <td><%= project.code %></td>
         <!--<td><%= project.description %></td>-->
         <td><%= project.billing_type %></td>
-        <td><%= project.start_date.strftime("%m-%d-%Y") %></td>
-        <td><%= project.deadline_date.strftime("%m-%d-%Y") %></td>
-        <!--<td><%= project.end_date.strftime("%m-%d-%Y") %></td>
+        <td><%= project.start_date.strftime("%d-%m-%Y") %></td>
+        <td><%= project.deadline_date.strftime("%d-%m-%Y") %></td>
+        <!--<td><%= project.end_date.strftime("%d-%m-%Y") %></td>
         <td><%= project.github_url %></td>-->
         <td><%= project.status %></td>
         <td><%= Client.find(project.client_id).name %></td>
@@ -41,9 +70,10 @@
 
     <% end %>
   </tbody>
-  
 </table>
-<center><%= will_paginate %></center>
+<center>
+    <%= will_paginate %>
+</center>
 <br>
 
 <%= link_to 'New Project', new_project_path %>

@@ -4,8 +4,10 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.paginate(page: params[:page], :per_page => 10)
-#    @users = User.paginate(page: params[:page])
+    @projects = Project.paginate(page: params[:page], :per_page => 7)
+    @clients = Client.all
+
+#    @projects.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 7).order('dead_line_date asc').where("name LIKE ? OR status LIKE ? ", "#{params[:search]}%", "#{params[:search]}%")
   end
 
   # GET /projects/1

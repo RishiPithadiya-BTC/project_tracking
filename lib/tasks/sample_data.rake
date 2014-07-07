@@ -5,19 +5,6 @@ namespace :db do
     make_clients
   end
 end
-=begin
-def sd
-  Date.new(Random.new.rand(2010..2011),Random.new.rand(1..12),Random.new.rand(1..30)).strftime("%m-%d-%Y")
-end
-
-def dd
-  Date.new(Random.new.rand(2011..2012),Random.new.rand(1..12),Random.new.rand(1..30)).strftime("%m-%d-%Y")
-end
-
-def ed
-  Date.new(Random.new.rand(2011..2012),Random.new.rand(1..12),Random.new.rand(1..30)).strftime("%m-%d-%Y")
-end
-=end
 def make_projects
   30.times do |n|
     Project.create!(name: Faker::Name.name,
