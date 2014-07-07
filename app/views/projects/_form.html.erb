@@ -47,6 +47,11 @@
     <%= f.label :status %>
     <%= f.select :status, [ 'POC', 'KICK OFF','COMPLETED'] %>
   </div>
+  <div class="field">
+    <%= f.label :client_id %>
+    <%= f.collection_select :client, Client.all, :id, :name, placeholder: "Select Client name", :class => 'form-control', include_blank: false %>
+
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

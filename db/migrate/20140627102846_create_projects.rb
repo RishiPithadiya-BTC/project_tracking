@@ -13,5 +13,6 @@ class CreateProjects < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :projects, [:client_id, :created_at]
   end
 end

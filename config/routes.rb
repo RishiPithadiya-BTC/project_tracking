@@ -4,6 +4,7 @@ ProjectTracking::Application.routes.draw do
   match '/contact_us', to: 'static_pages#contact_us', via: 'get'
   match '/projects',    to: 'projects#index',    via: 'get'
   resources :projects
+  resources :clients
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
