@@ -5,14 +5,15 @@
     <tr>
       <th>Name</th>
       <th>Code</th>
-      <th>Description</th>
+      <!--<th>Description</th>-->
       <th>Billing type</th>
       <th>Start date</th>
       <th>Deadline date</th>
-      <th>End date</th>
-      <!--<th>Github url</th>-->
+      <!--<th>End date</th>
+      <th>Github url</th>-->
       <th>Status</th>
-      <th>Action</th>
+      <th>Client</th>
+      <th>Actions</th>
       <!-- <th></th> 
       <th></th> -->
     </tr>
@@ -26,13 +27,14 @@
       <tr>
         <td><%= project.name%></td>
         <td><%= project.code %></td>
-        <td><%= project.description %></td>
+        <!--<td><%= project.description %></td>-->
         <td><%= project.billing_type %></td>
         <td><%= project.start_date.strftime("%m-%d-%Y") %></td>
         <td><%= project.deadline_date.strftime("%m-%d-%Y") %></td>
-        <td><%= project.end_date.strftime("%m-%d-%Y") %></td>
-        <!--<td><%= project.github_url %></td>-->
+        <!--<td><%= project.end_date.strftime("%m-%d-%Y") %></td>
+        <td><%= project.github_url %></td>-->
         <td><%= project.status %></td>
+        <td><%= Client.find(project.client_id).name %></td>
         <!-- <td><%= link_to 'Show', project %></td> -->
         <td><%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
