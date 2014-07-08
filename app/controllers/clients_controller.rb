@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_client, only: [:show, :destroy]
+ 
   def new
     @client = Client.new
   end
@@ -21,18 +21,6 @@ class ClientsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @client }
       else
         format.html { render action: 'new' }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @client.update(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end

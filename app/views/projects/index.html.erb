@@ -1,54 +1,33 @@
 <h1><u>Projects</u></h1>
 
+
+<%= form_tag projects_path, :method => 'get' do%>
+  <table align="center" cellspacing="0px" cellpadding="0px">
+  <tr>
+    <td><%= text_field_tag :search, params[:search] %></td>
+    <td><%= select_tag(:status,options_for_select(['POC','KICK OFF','COMPLETED']))%></td>
+    <td><%= select_tag(:client_id,
+    options_for_select(Client.all.collect {|p| [ p.name, p.id ]})) %></td>
+    <td><%= submit_tag "Search", :name => nil %></td>
+  </tr>
+  </table>
+<% end%>
+
 <table border="2" align="center" cellpadding="9">
   <thead>
     <tr>
       <th>Name</th>
       <th>Code</th>
-      <!--<th>Description</th>-->
       <th>Billing type</th>
       <th>Start date</th>
       <th>Deadline date</th>
-      <!--<th>End date</th>
-      <th>Github url</th>-->
       <th>Status</th>
       <th>Client</th>
       <th>Actions</th>
-      <!-- <th></th> 
-      <th></th> -->
     </tr>
   </thead>
 
   <% projects = @projects.sort_by(&:deadline_date) %>
-  
-  <center>
-  <div id="Search">
-    <!-- <input id="name" name="name" type="text" placeholder="Project Name" />
-    <select id="status">
-      <option>POC</option>
-      <option>KICK OFF</option>
-      <option>COMPLETED</option>
-    </select>
-    <select id="client">
-      <% @clients.each do |client| %>
-        <option><%= client.name%></option>
-      <% end %>
-    </select> -->
-
-    <%= form_tag(:projects, method: "get") do %>
-      <div align="center">
-        <%= text_field_tag "search", params[:search], :placeholder => "Project Name"%>
-        <%= select("status", "status_id", Project.select(:status).map(&:status).uniq) %>
-        <%= select("client_name", "client_id", Client.all.collect {|p| [ p.name, p.id ] }) %>
-        <%= submit_tag "Search", name: nil, class: "btn-custom-darken" %>
-        <br/>
-      </div>
-    <% end %>
-
-    <%#= @filtered=Project.where("name = ? AND status = ? AND client_id = ?",params[:search],status,client_id).all %>
-
-  </div>  
-  </center>
 
   <tbody>
     
@@ -56,18 +35,13 @@
       <tr>
         <td><%= project.name%></td>
         <td><%= project.code %></td>
-        <!--<td><%= project.description %></td>-->
         <td><%= project.billing_type %></td>
         <td><%= project.start_date.strftime("%d-%m-%Y") %></td>
         <td><%= project.deadline_date.strftime("%d-%m-%Y") %></td>
-        <!--<td><%= project.end_date.strftime("%d-%m-%Y") %></td>
-        <td><%= project.github_url %></td>-->
         <td><%= project.status %></td>
-        <td><%= Client.find(project.client_id).name %></td>
-        <!-- <td><%= link_to 'Show', project %></td> -->
+        <td><%= project.client.name %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-
     <% end %>
   </tbody>
 </table>

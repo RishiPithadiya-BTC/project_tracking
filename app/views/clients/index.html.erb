@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>City</th>
+      <th>Country</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -15,7 +15,11 @@
       <tr>
         <td><%= client.name%></td>
         <td><%= client.city%></td>
-         <td><%= link_to 'Edit', edit_client_path(client) %> | <%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if client.projects.count < 1 %>
+
+         <td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end %>
       </tr>
 
     <% end %>

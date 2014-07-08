@@ -21,9 +21,9 @@ end
 
 def make_clients
 
-    Client.create!(name: "Rishi", city: "Ahmedabad")
-    Client.create!(name: "Ravi", city: "Surat")
-    Client.create!(name: "Ajay", city: "Rajkot")
-    Client.create!(name: "Ankur", city: "Baroda")
+    Client.create!(name: "Rishi", city: "India")
+    Client.create!(name: "Ravi", city: "America")
+    Client.create!(name: "Ajay", city: "Australia")
+    Client.create!(name: "Ankur", city: "Brazil")
 
 end
