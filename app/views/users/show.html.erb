@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<h1><u>Profile</u></h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div >
+<table style="font-size:10em;" align="center" cellpadding="10">
+<tr >
+  <td><strong style="font-size:2em;">Name</strong></td>
+  <td><strong style="font-size:2em;">:</strong></td>
+  <td><strong style="font-size:2em;"><%= @name %></strong></td>
+</tr>
+<tr >
+  <td><strong style="font-size:2em;">Email</strong></td>
+  <td><strong style="font-size:2em;">:</strong></td>
+  <td><strong style="font-size:2em;"><%= @email %></strong></td>
+</tr>
+</table>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>
+
+<!%= link_to 'Edit', edit_user_path(@user) %>
+<!%= link_to 'Back', users_path %>
