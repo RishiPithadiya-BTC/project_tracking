@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :destroy]
- 
+  before_action :authenticated_user?
+
   def new
     @client = Client.new
   end
@@ -42,5 +43,9 @@ class ClientsController < ApplicationController
 
   def client_params
       params.require(:client).permit(:name, :city)
+  end
+
+  def authenticated_user?
+      redirect_to  new_user_session_path  unless user_signed_in?
   end
 end

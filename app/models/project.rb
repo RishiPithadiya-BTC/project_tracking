@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
 
   def self.search(search,status,client)
   if search
-    find(:all, :conditions => ['name = ? OR status = ? OR client_id = ?',search,status,client])
+    find(:all, :conditions => ['name = ? AND status = ? AND client_id = ?',search,status,client])
   else
     find(:all)
   end

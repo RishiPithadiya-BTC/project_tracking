@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   require 'will_paginate/array';
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticated_user?
 
   # GET /projects
   # GET /projects.json
@@ -72,5 +73,9 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :code, :description, :billing_type, :start_date, :deadline_date, :end_date, :github_url, :status, :client_id)
+    end
+
+    def authenticated_user?
+      redirect_to  new_user_session_path  unless user_signed_in?
     end
 end
